@@ -1,4 +1,4 @@
-:root {
+:root { /* CSS Variables untuk konsistensi warna dan ukuran (Pertemuan 2: CSS Dasar & Styling) - Variabel global untuk tema aplikasi */
   --background: #eef2ff;
   --surface: #ffffff;
   --surface-strong: #f8fafc;
@@ -17,18 +17,18 @@
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Box-sizing untuk padding tidak menambah lebar total (Pertemuan 2) - Mengatur model box CSS */
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Smooth scrolling untuk UX (Pertemuan 2) - Animasi smooth saat scroll */
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: var(--sans);
-  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+  font-family: var(--sans); /* Font family dari CSS variable (Pertemuan 2) - Menggunakan font modern */
+  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%); /* Gradient background (Pertemuan 2) - Background gradien untuk estetika */
   color: var(--text);
 }
 
@@ -41,11 +41,11 @@ button,
 input,
 textarea,
 select {
-  font: inherit;
+  font: inherit; /* Inherit font dari parent (Pertemuan 2) - Konsistensi font pada form elements */
 }
 
 #app {
-  max-width: 1180px;
+  max-width: 1180px; /* Max width untuk layout responsif (Pertemuan 3: Layout CSS Lanjutan) - Container utama aplikasi */
   margin: 0 auto;
   padding: 32px 24px 48px;
 }
@@ -57,7 +57,7 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: clamp(2.5rem, 4vw, 3.4rem);
+  font-size: clamp(2.5rem, 4vw, 3.4rem); /* Fluid typography dengan clamp (Pertemuan 2) - Ukuran font responsif */
   line-height: 1.02;
   letter-spacing: -0.05em;
   color: var(--text-strong);
@@ -77,30 +77,30 @@ header p {
 }
 
 .search-row {
-  display: flex;
+  display: flex; /* Flexbox untuk centering (Pertemuan 3) - Layout flex untuk centering search bar */
   justify-content: center;
   margin: 24px auto 0;
 }
 
 .search-input {
-  width: min(520px, 100%);
+  width: min(520px, 100%); /* Min width untuk responsif (Pertemuan 3) - Input search yang responsif */
   padding: 14px 18px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 999px; /* Rounded border (Pertemuan 2) - Border radius untuk rounded input */
   background: var(--surface);
   color: var(--text-strong);
-  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06); /* Inset shadow (Pertemuan 2) - Shadow dalam untuk depth */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Transition untuk smooth effect (Pertemuan 2) - Transisi smooth pada hover/focus */
 }
 
 .search-input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12); /* Focus ring (Pertemuan 2) - Ring fokus untuk aksesibilitas */
 }
 
 .empty-state {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* Span seluruh kolom grid (Pertemuan 3) */
   text-align: center;
   color: var(--text-muted);
   padding: 24px 0;
@@ -118,9 +118,9 @@ header p {
 }
 
 .grid {
-  display: grid;
+  display: grid; /* CSS Grid untuk layout (Pertemuan 3) */
   gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Auto-fit grid (Pertemuan 3) */
 }
 
 .card,
@@ -131,7 +131,7 @@ header p {
 .card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow); /* Shadow untuk efek depth (Pertemuan 2) */
   overflow: hidden;
 }
 
@@ -161,20 +161,35 @@ header p {
   font-weight: 600;
 }
 
+.status-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.production-wrapper {
+  display: flex;
+  justify-content: center;
+}
 .bg-success {
-  background: var(--success);
+  background: var(--success); /* Warna hijau untuk success (Pertemuan 2) */
 }
 
 .bg-warning {
-  background: var(--warning);
+  background: var(--warning); /* Warna kuning untuk warning (Pertemuan 2) */
 }
 
 .bg-danger {
-  background: var(--danger);
+  background: var(--danger); /* Warna merah untuk danger (Pertemuan 2) */
 }
 
 .bg-secondary {
-  background: #64748b;
+  background: #64748b; /* Warna abu-abu untuk secondary (Pertemuan 2) */
 }
 
 .container {
@@ -183,7 +198,7 @@ header p {
 }
 
 .row {
-  display: grid;
+  display: grid; /* Grid untuk row Bootstrap-like (Pertemuan 3) */
   gap: 24px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
@@ -197,7 +212,7 @@ h1.text-center {
   text-align: center;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 720px) { /* Media query untuk responsif (Pertemuan 3) */
   #app {
     padding: 24px 18px 36px;
   }
