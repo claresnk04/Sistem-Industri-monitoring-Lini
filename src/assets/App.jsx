@@ -32,11 +32,11 @@ function App() { // Komponen utama App (Pertemuan 9) - Fungsi komponen React
         </div>
       </header>
 
-      {/* Section E.1: Praktik Counter Produksi */}
+{/* Section: Praktik Counter Produksi */}
       <section className="section mb-4">
         <div className="card practice-card border-0 mb-4">
           <div className="card-body p-4">
-            <h3 className="fw-semibold mb-3 text-center">E.1 Latihan 1 – Membuat Komponen Counter Produksi</h3>
+            <h3 className="fw-semibold mb-3 text-center">Praktik useState untuk Counter Produksi</h3>
             <div className="practice-inner">
               <CounterProduksi />
             </div>
@@ -44,11 +44,11 @@ function App() { // Komponen utama App (Pertemuan 9) - Fungsi komponen React
         </div>
       </section>
 
-      {/* Section E.2: Praktik Jam Digital */}
+{/* Section: Praktik Jam Digital */}
       <section className="section mb-4">
         <div className="card practice-card border-0 mb-4">
           <div className="card-body p-4 text-center">
-            <h3 className="fw-semibold mb-3">E.2 Latihan 2 – Menggunakan useEffect untuk Real-time Clock</h3>
+            <h3 className="fw-semibold mb-3">Praktik useEffect untuk Real-time Clock</h3>
             <div className="practice-inner">
               <JamDigital />
             </div>
