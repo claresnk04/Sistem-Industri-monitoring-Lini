@@ -1,9 +1,7 @@
-import React, { useState } from 'react'; // Import React dan useState hook untuk state management (Pertemuan 10: State, Hooks, Conditional Rendering) - Hook untuk menyimpan state pencarian
-import KartuMesin from './kartumesin'; // Import komponen KartuMesin (Pertemuan 9: React.js Component, JSX, Props) - Komponen untuk menampilkan kartu mesin
-import KartuKaryawan from './KartuKaryawan'; // Import komponen KartuKaryawan - Komponen untuk menampilkan kartu karyawan
-import JamDigital from './JamDigital'; // Import komponen JamDigital (Latihan 1: useEffect Dependency Array)
-import CounterProduksi from './CounterProduksi'; // Import komponen CounterProduksi (Latihan 2: Conditional Rendering & Emergency Stop)
-import KalkulatorOEE from './KalkulatorOEE'; // Import komponen KalkulatorOEE (Tugas Proyek Mini)
+import React from 'react'; // Import React untuk JSX (Pertemuan 9) - Komponen utama
+import KartuMesin from './kartumesin'; // Import komponen KartuMesin (Pertemuan 9: React.js Component, JSX, Props)
+import KartuKaryawan from './KartuKaryawan'; // Import komponen KartuKaryawan
+import KalkulatorOEE from './KalkulatorOEE'; // Import komponen KalkulatorOEE
 
 // Data mock untuk mesin produksi (Pertemuan 9: Props) - Array objek sebagai data statis untuk demonstrasi
 const mesinData = [
@@ -20,59 +18,25 @@ const karyawanData = [
 ];
 
 function App() { // Komponen utama App (Pertemuan 9) - Fungsi komponen React
-  // State untuk pencarian (Pertemuan 10: useState) - State untuk menyimpan input pencarian
-  const [search, setSearch] = useState('');
-
-  // Filter data mesin berdasarkan input search (Pertemuan 10: Conditional Rendering) - Logika filter menggunakan array method
-  const filteredMesin = mesinData.filter((mesin) =>
-    [mesin.nama, mesin.status].some((value) =>
-      value.toLowerCase().includes(search.toLowerCase())
-    )
-  );
-
-  // Filter data karyawan berdasarkan input search - Filter serupa untuk data karyawan
-  const filteredKaryawan = karyawanData.filter((karyawan) =>
-    [karyawan.nama, karyawan.jabatan, karyawan.bagian].some((value) =>
-      value.toLowerCase().includes(search.toLowerCase())
-    )
-  );
+  const filteredMesin = mesinData; // Menampilkan semua mesin tanpa pencarian
+  const filteredKaryawan = karyawanData; // Menampilkan semua karyawan tanpa pencarian
 
   return (
-    <div className="container"> {/* Container Bootstrap untuk layout responsif (Pertemuan 3: Bootstrap) - Wrapper utama dengan grid system */}
-      <header> {/* Semantic HTML: header untuk judul dan deskripsi (Pertemuan 1: HTML Dasar) - Elemen semantik untuk header */}
-        <h1 className="text-center">Monitoring Lini Produksi A</h1> {/* Heading HTML (Pertemuan 1) - Judul utama aplikasi */}
-        <p className="intro text-center">
-          Ringkasan status mesin dan informasi karyawan untuk mendukung operasional pabrik.
-        </p>
-        <div className="search-row"> {/* Div untuk pencarian (Pertemuan 7: Form Validation) - Container untuk input search */}
-          <input
-            type="search" // Input type search untuk pencarian (Pertemuan 7) - Type input khusus untuk search
-            className="search-input" // Class CSS untuk styling (Pertemuan 2: CSS Dasar) - Styling dari style.css
-            placeholder="Cari mesin, status, atau karyawan..." // Placeholder untuk UX (Pertemuan 2) - Petunjuk untuk user
-            value={search} // Controlled input dengan state (Pertemuan 10) - Value terikat dengan state
-            onChange={(event) => setSearch(event.target.value)} // Event handler (Pertemuan 6: DOM Manipulation) - Handler untuk perubahan input
-          />
+    <div className="container"> {/* Container bootstrap-like untuk layout responsif */}
+      <header className="hero"> {/* Bagian hero untuk nama mahasiswa */}
+        <div className="hero-card">
+          <p className="student-name">Nailah Azka Iftinah</p>
+          <p className="student-nim">NIM 23051430026</p>
         </div>
       </header>
 
-      {/* Section: Latihan 1 - JamDigital dengan useEffect Dependency Array */}
+      {/* Section: Praktik Kalkulator OEE */}
       <section className="section mb-4">
-        <h2 className="section-title">⏰ Latihan 1: Jam Digital (useEffect Dependency Array)</h2>
-        <JamDigital />
-      </section>
-
-      {/* Section: Latihan 2 - CounterProduksi dengan Emergency Stop */}
-      <section className="section mb-4">
-        <h2 className="section-title">📊 Latihan 2: Counter Produksi (Conditional Rendering & Emergency Stop)</h2>
-        <CounterProduksi />
-      </section>
-
-      {/* Section: Tugas Proyek Mini - Kalkulator OEE */}
-      <section className="section mb-4">
-        <h2 className="section-title">📈 Tugas Proyek Mini: Kalkulator OEE Sederhana</h2>
+        <h2 className="section-title">📈 Praktik Kalkulator OEE</h2>
         <KalkulatorOEE />
       </section>
 
+      {/* Section: Monitoring Mesin */}
       <section className="section"> {/* Semantic HTML: section untuk grup komponen (Pertemuan 1) - Grouping untuk section mesin */}
         <h2 className="section-title">Monitoring Lini Produksi A</h2> {/* Heading untuk section (Pertemuan 1) - Subjudul untuk section */}
         <div className="row"> {/* Row Bootstrap untuk grid layout (Pertemuan 3) - Grid system Bootstrap */}

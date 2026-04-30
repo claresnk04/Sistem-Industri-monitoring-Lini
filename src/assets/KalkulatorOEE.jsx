@@ -56,104 +56,93 @@ function KalkulatorOEE() { // Komponen untuk menghitung OEE (Tugas Proyek Mini: 
   };
 
   return (
-    <div className="card shadow-sm p-4 mb-3"> {/* Card Bootstrap */}
+    <div className="card shadow-sm p-4 mb-3 oee-card"> {/* Card Bootstrap */}
       <div className="card-body">
-        <h3 className="card-title mb-4">📈 Kalkulator OEE (Overall Equipment Effectiveness)</h3>
+        <div className="oee-header">
+          <h3 className="card-title mb-1">📈 Kalkulator OEE</h3>
+          <p className="text-muted">Overall Equipment Effectiveness dengan input produksi real-time.</p>
+        </div>
 
         {/* Section: Input Form (Tugas Proyek Mini: a. Form input) */}
-        <div className="row mb-4">
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label"><strong>Plan Time (menit)</strong></label>
-              <input
-                type="number"
-                className="form-control"
-                value={planTime}
-                onChange={(e) => setPlanTime(parseFloat(e.target.value))} // Update state real-time (Pertemuan 10)
-                placeholder="Masukkan plan time..."
-              />
-              <small className="text-muted">Waktu yang direncanakan untuk produksi</small>
-            </div>
+        <div className="oee-input-grid mb-4">
+          <div className="oee-input-box">
+            <label className="form-label"><strong>Plan Time (menit)</strong></label>
+            <input
+              type="number"
+              className="form-control"
+              value={planTime}
+              onChange={(e) => setPlanTime(parseFloat(e.target.value))}
+              placeholder="Masukkan plan time..."
+            />
+            <small className="text-muted">Waktu yang direncanakan untuk produksi</small>
           </div>
 
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label"><strong>Run Time (menit)</strong></label>
-              <input
-                type="number"
-                className="form-control"
-                value={runTime}
-                onChange={(e) => setRunTime(parseFloat(e.target.value))} // Update state real-time
-                placeholder="Masukkan run time..."
-              />
-              <small className="text-muted">Waktu produksi aktual</small>
-            </div>
+          <div className="oee-input-box">
+            <label className="form-label"><strong>Run Time (menit)</strong></label>
+            <input
+              type="number"
+              className="form-control"
+              value={runTime}
+              onChange={(e) => setRunTime(parseFloat(e.target.value))}
+              placeholder="Masukkan run time..."
+            />
+            <small className="text-muted">Waktu produksi aktual</small>
           </div>
 
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label"><strong>Total Parts (unit)</strong></label>
-              <input
-                type="number"
-                className="form-control"
-                value={totalParts}
-                onChange={(e) => setTotalParts(parseFloat(e.target.value))} // Update state real-time
-                placeholder="Masukkan total parts..."
-              />
-              <small className="text-muted">Total produk yang diproduksi</small>
-            </div>
+          <div className="oee-input-box">
+            <label className="form-label"><strong>Total Parts (unit)</strong></label>
+            <input
+              type="number"
+              className="form-control"
+              value={totalParts}
+              onChange={(e) => setTotalParts(parseFloat(e.target.value))}
+              placeholder="Masukkan total parts..."
+            />
+            <small className="text-muted">Total produk yang diproduksi</small>
           </div>
 
-          <div className="col-md-6">
-            <div className="mb-3">
-              <label className="form-label"><strong>Good Parts (unit)</strong></label>
-              <input
-                type="number"
-                className="form-control"
-                value={goodParts}
-                onChange={(e) => setGoodParts(parseFloat(e.target.value))} // Update state real-time
-                placeholder="Masukkan good parts..."
-              />
-              <small className="text-muted">Produk yang lolos kualitas</small>
-            </div>
+          <div className="oee-input-box">
+            <label className="form-label"><strong>Good Parts (unit)</strong></label>
+            <input
+              type="number"
+              className="form-control"
+              value={goodParts}
+              onChange={(e) => setGoodParts(parseFloat(e.target.value))}
+              placeholder="Masukkan good parts..."
+            />
+            <small className="text-muted">Produk yang lolos kualitas</small>
           </div>
         </div>
 
         {/* Section: Detail Perhitungan (Menampilkan komponen OEE) */}
         <hr />
-        <h5 className="mb-3">📊 Detail Perhitungan:</h5>
+        <h5 className="mb-3 text-center">📊 Detail Perhitungan:</h5>
 
-        <div className="row">
+        <div className="oee-stat-grid">
           {/* Availability Card */}
-          <div className="col-md-4">
-            <div className="card border-info mb-3">
-              <div className="card-body">
-                <h6 className="card-title">⏱️ Availability</h6>
-                <p className="display-6 text-info">{availability.toFixed(2)}%</p>
-                <small className="text-muted">Run Time / Plan Time</small>
-              </div>
+          <div className="oee-stat-card border-info mb-3">
+            <div className="card-body">
+              <h6 className="card-title">⏱️ Availability</h6>
+              <p className="display-6 text-info text-center">{availability.toFixed(2)}%</p>
+              <small className="text-muted d-block text-center">Run Time / Plan Time</small>
             </div>
           </div>
 
           {/* Performance Card */}
-          <div className="col-md-4">
-            <div className="card border-warning mb-3">
-              <div className="card-body">
-                <h6 className="card-title">⚡ Performance</h6>
-                <p className="display-6 text-warning">{performance.toFixed(2)}%</p>
-                <small className="text-muted">Kecepatan produksi aktual</small>
-              </div>
+          <div className="oee-stat-card border-warning mb-3">
+            <div className="card-body">
+              <h6 className="card-title">⚡ Performance</h6>
+              <p className="display-6 text-warning text-center">{performance.toFixed(2)}%</p>
+              <small className="text-muted d-block text-center">Kecepatan produksi aktual</small>
             </div>
           </div>
 
           {/* Quality Card */}
-          <div className="col-md-4">
-            <div className="card border-success mb-3">
-              <div className="card-body">
-                <h6 className="card-title">✅ Quality</h6>
-                <p className="display-6 text-success">{quality.toFixed(2)}%</p>
-                <small className="text-muted">Good Parts / Total Parts</small>
-              </div>
+          <div className="oee-stat-card border-success mb-3">
+            <div className="card-body">
+              <h6 className="card-title">✅ Quality</h6>
+              <p className="display-6 text-success text-center">{quality.toFixed(2)}%</p>
+              <small className="text-muted d-block text-center">Good Parts / Total Parts</small>
             </div>
           </div>
         </div>
