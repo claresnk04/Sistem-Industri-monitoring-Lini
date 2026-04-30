@@ -36,9 +36,9 @@ function App() { // Komponen utama App (Pertemuan 9) - Fungsi komponen React
       <section className="section mb-4">
         <div className="card practice-card border-0 mb-4">
           <div className="card-body p-4 text-center">
-            <h3 className="fw-semibold mb-3">Praktik 1 useEffect untuk Real-time Clock</h3>
-            <div className="practice-inner">
-              <JamDigital />
+<h3 className="fw-semibold mb-3">Praktik 1 useState untuk Counter Produksi</h3>
+<div className="practice-inner">
+              <CounterProduksi kota="Jakarta" />
             </div>
           </div>
         </div>
@@ -48,9 +48,9 @@ function App() { // Komponen utama App (Pertemuan 9) - Fungsi komponen React
       <section className="section mb-4">
         <div className="card practice-card border-0 mb-4">
           <div className="card-body p-4">
-            <h3 className="fw-semibold mb-3 text-center">Praktik 2 useState untuk Counter Produksi</h3>
-            <div className="practice-inner">
-              <CounterProduksi />
+            <h3 className="fw-semibold mb-3 text-center">Praktik 2 useEffect untuk Real-time Clock</h3>
+<div className="practice-inner">
+              <JamDigital kota="Yogykarta" />
             </div>
           </div>
         </div>

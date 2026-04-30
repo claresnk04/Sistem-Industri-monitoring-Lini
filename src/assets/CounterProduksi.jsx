@@ -1,11 +1,14 @@
 import React, { useState } from 'react'; // Import React, useState (Pertemuan 10: State, Hooks)
 
-function CounterProduksi() { // Komponen untuk menghitung produksi dengan emergency stop (Latihan 2: Conditional Rendering)
+function CounterProduksi({ kota = 'Jakarta' }) { // Komponen untuk menghitung produksi dengan emergency stop (Latihan 2: Conditional Rendering)
   // State untuk jumlah produksi (Pertemuan 10: useState)
   const [jumlah, setJumlah] = useState(0); // Counter produksi awal 0
   
   // State untuk target harian (Pertemuan 10: useState)
   const [target, setTarget] = useState(100); // Target default 100 unit
+  
+  // State untuk nama kota (Pertemuan 10: useState) - menggunakan props dari parent
+  const [kotaState, setKotaState] = useState(kota); // State kota dengan default value dari props
   
   // State untuk status mesin (Latihan 2: Emergency Stop)
   const [status, setStatus] = useState('NORMAL'); // Status: NORMAL atau EMERGENCY
@@ -82,10 +85,10 @@ function CounterProduksi() { // Komponen untuk menghitung produksi dengan emerge
           </button>
         </div>
 
-        {/* Informasi status tambahan (Latihan 2) */}
+{/* Informasi status tambahan (Latihan 2) */}
         <div className="mt-3">
           <small className="text-muted">
-            Status Mesin: <strong className={status === 'EMERGENCY' ? 'text-danger' : 'text-success'}>
+            Kota: <strong>{kota}</strong> | Status Mesin: <strong className={status === 'EMERGENCY' ? 'text-danger' : 'text-success'}>
               {status}
             </strong>
           </small>

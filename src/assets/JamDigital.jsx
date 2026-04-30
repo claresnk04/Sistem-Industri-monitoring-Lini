@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'; // Import React, useState, useEffect (Pertemuan 10: State, Hooks)
 
-function JamDigital() { // Komponen untuk menampilkan jam digital dengan kota (Latihan 1: useEffect Dependency Array)
+function JamDigital({ kota = 'Yogykarta' }) { // Komponen untuk menampilkan jam digital dengan kota (Latihan 1: useEffect Dependency Array)
   // State untuk waktu (Pertemuan 10: useState)
   const [waktu, setWaktu] = useState(new Date()); // State waktu yang update setiap detik
   
-  // State untuk nama kota (Pertemuan 10: useState)
-  const [kota, setKota] = useState('Yogykarta'); // State kota dengan default value
+  // State untuk nama kota (Pertemuan 10: useState) - menggunakan props dari parent
+  const [kotaState, setKotaState] = useState(kota); // State kota dengan default value dari props
 
   // useEffect untuk update waktu setiap detik (Pertemuan 10: useEffect)
   useEffect(() => {
