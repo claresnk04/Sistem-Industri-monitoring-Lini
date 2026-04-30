@@ -456,6 +456,18 @@ button:disabled {
   font-weight: 700;
 }
 
+.bg-danger {
+  background: var(--danger);
+}
+
+.bg-warning {
+  background: var(--warning);
+}
+
+.bg-success {
+  background: var(--success);
+}
+
 .bg-danger-light {
   background: rgba(220, 38, 38, 0.12);
 }
