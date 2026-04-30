@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react'; // Import React, useState, u
 
 function KalkulatorOEE() { // Komponen untuk menghitung OEE (Tugas Proyek Mini: Kalkulator OEE)
   // State untuk Plan Time (Pertemuan 10: useState)
-  const [planTime, setPlanTime] = useState(480); // Plan Time dalam menit (default 8 jam = 480 menit)
+  const [planTime, setPlanTime] = useState(397); // Plan Time dalam menit (contoh data)
   
   // State untuk Run Time (Waktu produksi aktual)
-  const [runTime, setRunTime] = useState(420); // Run Time dalam menit
+  const [runTime, setRunTime] = useState(188); // Run Time dalam menit
   
   // State untuk Total Parts (Total produk yang diproduksi)
-  const [totalParts, setTotalParts] = useState(1000); // Total parts
+  const [totalParts, setTotalParts] = useState(792); // Total parts
   
   // State untuk Good Parts (Produk yang lolos kualitas)
-  const [goodParts, setGoodParts] = useState(975); // Good parts
+  const [goodParts, setGoodParts] = useState(650); // Good parts
   
   // State untuk hasil perhitungan OEE (Pertemuan 10: useState)
   const [oee, setOee] = useState(0); // Nilai OEE dalam persen
@@ -59,7 +59,7 @@ function KalkulatorOEE() { // Komponen untuk menghitung OEE (Tugas Proyek Mini: 
     <div className="card shadow-sm p-4 mb-3 oee-card"> {/* Card Bootstrap */}
       <div className="card-body">
         <div className="oee-header">
-          <h3 className="card-title mb-1">📈 Kalkulator OEE</h3>
+          <h3 className="card-title mb-1">Kalkulator OEE</h3>
           <p className="text-muted">Overall Equipment Effectiveness dengan input produksi real-time.</p>
         </div>
 
@@ -116,13 +116,13 @@ function KalkulatorOEE() { // Komponen untuk menghitung OEE (Tugas Proyek Mini: 
 
         {/* Section: Detail Perhitungan (Menampilkan komponen OEE) */}
         <hr />
-        <h5 className="mb-3 text-center">📊 Detail Perhitungan:</h5>
+        <h5 className="mb-3 text-center">Detail Perhitungan:</h5>
 
         <div className="oee-stat-grid">
           {/* Availability Card */}
           <div className="oee-stat-card border-info mb-3">
             <div className="card-body">
-              <h6 className="card-title">⏱️ Availability</h6>
+              <h6 className="card-title">Availability</h6>
               <p className="display-6 text-info text-center">{availability.toFixed(2)}%</p>
               <small className="text-muted d-block text-center">Run Time / Plan Time</small>
             </div>
@@ -131,7 +131,7 @@ function KalkulatorOEE() { // Komponen untuk menghitung OEE (Tugas Proyek Mini: 
           {/* Performance Card */}
           <div className="oee-stat-card border-warning mb-3">
             <div className="card-body">
-              <h6 className="card-title">⚡ Performance</h6>
+              <h6 className="card-title">Performance</h6>
               <p className="display-6 text-warning text-center">{performance.toFixed(2)}%</p>
               <small className="text-muted d-block text-center">Kecepatan produksi aktual</small>
             </div>
@@ -140,7 +140,7 @@ function KalkulatorOEE() { // Komponen untuk menghitung OEE (Tugas Proyek Mini: 
           {/* Quality Card */}
           <div className="oee-stat-card border-success mb-3">
             <div className="card-body">
-              <h6 className="card-title">✅ Quality</h6>
+              <h6 className="card-title">Quality</h6>
               <p className="display-6 text-success text-center">{quality.toFixed(2)}%</p>
               <small className="text-muted d-block text-center">Good Parts / Total Parts</small>
             </div>
@@ -149,33 +149,27 @@ function KalkulatorOEE() { // Komponen untuk menghitung OEE (Tugas Proyek Mini: 
 
         {/* Section: Hasil OEE (Tugas Proyek Mini: c, d, e. Hitung dan tampilkan OEE) */}
         <hr />
-        <div className={`alert ${getBackgroundColor()} border-2`}>
+        <div className={`alert ${getBackgroundColor()} border-2 text-center`}>
           <h4 className={`${getOeeColor()} fw-bold mb-2`}>
-            🎯 Overall Equipment Effectiveness (OEE)
+            Overall Equipment Effectiveness (OEE)
           </h4>
-          <h1 className={`display-2 ${getOeeColor()} fw-bold text-center`}>
+          <h1 className={`display-2 ${getOeeColor()} fw-bold`}>
             {oee.toFixed(2)}%
           </h1>
           
           {/* Status dan Rekomendasi (Pertemuan 10: Conditional Rendering) */}
-          <p className="text-center mt-2">
+          <p className="mt-2 oee-status-text">
             {oee < 50 ? (
-              // Status Merah (Latihan 2: Conditional Rendering)
               <span className="text-danger fw-bold">
-                🔴 BURUK - Butuh perbaikan signifikan!<br />
-                <small>Target industri modern: &gt; 85%</small>
+                BURUK - Butuh perbaikan signifikan! <small className="text-muted">Target industri modern: &gt; 85%</small>
               </span>
             ) : oee < 85 ? (
-              // Status Kuning
               <span className="text-warning fw-bold">
-                🟡 SEDANG - Ada ruang untuk peningkatan<br />
-                <small>Target: tingkatkan ke &gt; 85%</small>
+                SEDANG - Ada ruang untuk peningkatan <small className="text-muted">Target: tingkatkan ke &gt; 85%</small>
               </span>
             ) : (
-              // Status Hijau (Latihan 2)
               <span className="text-success fw-bold">
-                🟢 EXCELLENT - Performa mesin optimal!<br />
-                <small>Pertahankan tingkat efisiensi ini</small>
+                EXCELLENT - Performa mesin optimal! <small className="text-muted">Pertahankan tingkat efisiensi ini</small>
               </span>
             )}
           </p>
@@ -191,7 +185,7 @@ function KalkulatorOEE() { // Komponen untuk menghitung OEE (Tugas Proyek Mini: 
         {/* Informasi Standar Industri */}
         <div className="mt-3">
           <small className="text-muted d-block">
-            <strong>📌 Standar Industri OEE:</strong><br />
+            <strong>Standar Industri OEE:</strong><br />
             • 0-50%: Poor (Buruk)<br />
             • 50-85%: Acceptable (Sedang)<br />
             • &gt;85%: World Class (Sangat Baik)

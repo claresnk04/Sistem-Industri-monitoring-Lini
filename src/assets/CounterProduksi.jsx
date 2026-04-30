@@ -31,7 +31,7 @@ function CounterProduksi() { // Komponen untuk menghitung produksi dengan emerge
   return (
     <div className="card shadow-sm p-4 mb-3"> {/* Card Bootstrap dengan padding */}
       <div className="card-body text-center">
-        <h3 className="card-title">📊 Simulasi Hitung Produk</h3>
+        <h3 className="card-title">Simulasi Hitung Produk</h3>
         
         {/* Display angka produksi dengan ukuran besar */}
         <div className="display-3 fw-bold mb-2">{jumlah}</div> {/* Menampilkan jumlah produksi */}
@@ -42,17 +42,17 @@ function CounterProduksi() { // Komponen untuk menghitung produksi dengan emerge
         {status === 'EMERGENCY' ? (
           // Jika status EMERGENCY, tampilkan pesan merah (Latihan 2)
           <div className="alert alert-danger fw-bold">
-            🚨 EMERGENCY STOP AKTIF - Produksi Terhenti!
+            EMERGENCY STOP AKTIF - Produksi Terhenti!
           </div>
         ) : jumlah >= target ? (
           // Jika jumlah >= target, tampilkan pesan sukses
           <div className="alert alert-success fw-bold">
-            ✅ Target Tercapai! ({jumlah}/{target} Unit)
+            Target Tercapai! ({jumlah}/{target} Unit)
           </div>
         ) : (
           // Default: pesan produksi berjalan
           <div className="alert alert-secondary">
-            ⚙️ Produksi Berjalan... ({jumlah}/{target} Unit)
+            Produksi Berjalan... ({jumlah}/{target} Unit)
           </div>
         )}
 
@@ -64,12 +64,12 @@ function CounterProduksi() { // Komponen untuk menghitung produksi dengan emerge
             onClick={tambahProduksi}
             disabled={status === 'EMERGENCY'} // Disabled saat EMERGENCY (Latihan 2)
           >
-            ➕ +1 Unit
+            +1 Unit
           </button>
 
           {/* Tombol Reset */}
           <button className="btn btn-warning btn-lg" onClick={reset}>
-            🔄 Reset Shift
+            Reset Shift
           </button>
 
           {/* Tombol Emergency Stop (Latihan 2: Conditional Rendering) */}
@@ -78,7 +78,7 @@ function CounterProduksi() { // Komponen untuk menghitung produksi dengan emerge
             onClick={emergencyStop}
             disabled={status === 'EMERGENCY'} // Disabled jika sudah dalam status EMERGENCY
           >
-            🛑 Emergency Stop
+            Emergency Stop
           </button>
         </div>
 

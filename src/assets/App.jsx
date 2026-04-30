@@ -1,6 +1,8 @@
 import React from 'react'; // Import React untuk JSX (Pertemuan 9) - Komponen utama
 import KartuMesin from './kartumesin'; // Import komponen KartuMesin (Pertemuan 9: React.js Component, JSX, Props)
 import KartuKaryawan from './KartuKaryawan'; // Import komponen KartuKaryawan
+import CounterProduksi from './CounterProduksi'; // Import komponen CounterProduksi (Praktik E1)
+import JamDigital from './JamDigital'; // Import komponen JamDigital (Praktik E2)
 import KalkulatorOEE from './KalkulatorOEE'; // Import komponen KalkulatorOEE
 
 // Data mock untuk mesin produksi (Pertemuan 9: Props) - Array objek sebagai data statis untuk demonstrasi
@@ -30,9 +32,33 @@ function App() { // Komponen utama App (Pertemuan 9) - Fungsi komponen React
         </div>
       </header>
 
+      {/* Section E.1: Praktik Counter Produksi */}
+      <section className="section mb-4">
+        <div className="card practice-card border-0 mb-4">
+          <div className="card-body p-4">
+            <h3 className="fw-semibold mb-3 text-center">E.1 Latihan 1 – Membuat Komponen Counter Produksi</h3>
+            <div className="practice-inner">
+              <CounterProduksi />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section E.2: Praktik Jam Digital */}
+      <section className="section mb-4">
+        <div className="card practice-card border-0 mb-4">
+          <div className="card-body p-4 text-center">
+            <h3 className="fw-semibold mb-3">E.2 Latihan 2 – Menggunakan useEffect untuk Real-time Clock</h3>
+            <div className="practice-inner">
+              <JamDigital />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Section: Praktik Kalkulator OEE */}
       <section className="section mb-4">
-        <h2 className="section-title">📈 Praktik Kalkulator OEE</h2>
+        <h2 className="section-title">Praktik Kalkulator OEE</h2>
         <KalkulatorOEE />
       </section>
 

@@ -5,7 +5,7 @@ function JamDigital() { // Komponen untuk menampilkan jam digital dengan kota (L
   const [waktu, setWaktu] = useState(new Date()); // State waktu yang update setiap detik
   
   // State untuk nama kota (Pertemuan 10: useState)
-  const [kota, setKota] = useState('Jakarta'); // State kota dengan default value
+  const [kota, setKota] = useState('Yogykarta'); // State kota dengan default value
 
   // useEffect untuk update waktu setiap detik (Pertemuan 10: useEffect)
   useEffect(() => {
@@ -33,7 +33,7 @@ function JamDigital() { // Komponen untuk menampilkan jam digital dengan kota (L
   return (
     <div className="card shadow-sm p-4 mb-3 bg-info text-white"> {/* Card dengan styling Bootstrap */}
       <div className="card-body">
-        <h4 className="card-title">⏰ Jam Sistem Server</h4>
+        <h4 className="card-title">Jam Sistem Server</h4>
 
         {/* Input untuk memasukkan nama kota (Latihan 1) */}
         <div className="mb-3">
